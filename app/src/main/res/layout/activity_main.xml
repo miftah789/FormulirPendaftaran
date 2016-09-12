@@ -108,8 +108,7 @@
         android:id="@+id/spinnerkls"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/Kelas"
-        android:spinnerMode="dialog" />
+        android:entries="@array/Kelas" />
 
     <Button
         android:id="@+id/button"
