@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     TextView hasilorg;
     TextView hasilkels;
     RadioGroup rgjk;
+    CheckBox cbos, cbpr, cbmpk;
+    Spinner spkelas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
         edNama = (EditText) findViewById(R.id.editTextnama);
         rgjk = (RadioGroup) findViewById(R.id.rbjk);
+        cbos = (CheckBox) findViewById(R.id.checkBoxos);
+        cbpr = (CheckBox) findViewById(R.id.checkBoxperpus);
+        cbmpk = (CheckBox) findViewById(R.id.checkBoxmpk);
+        spkelas = (Spinner) findViewById(R.id.spinnerkls);
         bDaftar = (Button) findViewById(R.id.button);
         hasilnama = (TextView) findViewById(R.id.textViewHasilnm);
         hasiljkl = (TextView) findViewById(R.id.textViewhasiljk);
@@ -74,6 +82,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void doClick() {
         String hasil = null;
+        String hs = "Organisasi : ";
+
+        if (cbos.isChecked()) hs += cbos.getText() + "\n";
+        if (cbpr.isChecked()) hs += cbpr.getText() + "\n";
+        if (cbmpk.isChecked()) hs += cbmpk.getText() + "\n";
+
+        int startlen = hs.length();
+        if (hs.length() == startlen) hs += "Tidak ada pilihan";
+        hasilorg.setText(hs);
 
         if (rgjk.getCheckedRadioButtonId() != -1) {
             RadioButton rb = (RadioButton)
@@ -86,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             hasiljkl.setText("Jenis kelamin : " + hasil);
         }
+
+        hasilkels.setText("Kelas : " + spkelas.getSelectedItem().toString());
     }
 
 }
