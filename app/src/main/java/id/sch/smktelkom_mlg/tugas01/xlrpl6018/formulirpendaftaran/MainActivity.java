@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     private void doClick() {
         String hasil = null;
         String hs = "Organisasi : ";
+        hasilkels.setText("Kelas : " + spkelas.getSelectedItem().toString());
 
         if (cbos.isChecked()) hs += cbos.getText() + "\n";
         if (cbpr.isChecked()) hs += cbpr.getText() + "\n";
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             hasiljkl.setText("Jenis kelamin : " + hasil);
         }
 
-        hasilkels.setText("Kelas : " + spkelas.getSelectedItem().toString());
+
     }
 
 }
